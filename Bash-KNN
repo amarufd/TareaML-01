@@ -5,10 +5,16 @@ if [ ! -d "KNN" ]; then
   mkdir KNN
 fi
 
+#weights =["uniform","distance"]
 
-for (( c=1; c<=2; c++ ))
+for (( c=1; c<=15; c++ ))
 do  
-   python Activity1-KNN.py 1 0 0 $c > KNN/NroTraining_10-Machine_KNN-A$c.txt
+   python Activity1-KNN.py 1 0 0 $c > KNN/NroTraining_10-Machine_KNN-Distance_uniform-A$c.txt
+done
+
+for (( c=1; c<=15; c++ ))
+do  
+   python Activity1-KNN.py 1 0 1 $c > KNN/NroTraining_10-Machine_KNN-Distance_distance-A$c.txt
 done
 
 
