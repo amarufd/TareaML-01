@@ -1,0 +1,8 @@
+
+python Activity1.py 1 0 > NroTraining_10-Machine_KNN-A.txt
+python Activity1.py 2 0 > NroTraining_10-Machine_SVM-A.txt
+python Activity1.py 3 0 > NroTraining_10-Machine_NNS-A.txt
+
+python Activity1.py 1 1 > NroTraining_67-Machine_KNN-A.txt
+python Activity1.py 2 1 > NroTraining_67-Machine_SVM-A.txt
+python Activity1.py 3 1 > NroTraining_67-Machine_NNS-A.txt

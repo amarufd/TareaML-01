@@ -1,0 +1,13 @@
+
+#!/bin/bash
+for (( c=1; c<=2; c++ ))
+do  
+   python Activity1-KNN.py 1 0 0 $c > KNN/NroTraining_10-Machine_KNN-A$c.txt
+done
+
+
+
+
+
+## python Activity1-KNN.py 1 0 1 1 > KNN/NroTraining_10-Machine_KNN-B$c.txt
+
