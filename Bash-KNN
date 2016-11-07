@@ -1,5 +1,7 @@
-
 #!/bin/bash
+
+mkdir KNN
+
 for (( c=1; c<=2; c++ ))
 do  
    python Activity1-KNN.py 1 0 0 $c > KNN/NroTraining_10-Machine_KNN-A$c.txt
