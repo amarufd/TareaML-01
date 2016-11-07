@@ -3,18 +3,24 @@
 if [ ! -d "KNN" ]; then
   # Control will enter here if $DIRECTORY doesn't exist.
   mkdir KNN
+  mkdir KNN/10
+  mkdir KNN/67
 fi
+
+t=10
+tf=0
+
 
 #weights =["uniform","distance"]
 
 for (( c=1; c<=15; c++ ))
 do  
-   python Activity1-KNN.py 1 0 0 $c > KNN/NroTraining_10-Machine_KNN-Distance_uniform-Vecinos_$c.txt
+   python Activity1-KNN.py 1 $tf 0 $c > KNN/$t/NroTraining_$t-Machine_KNN-Distance_uniform-Vecinos_$c.txt
 done
 
 for (( c=1; c<=15; c++ ))
 do  
-   python Activity1-KNN.py 1 0 1 $c > KNN/NroTraining_10-Machine_KNN-Distance_distance-Vecinos_$c.txt
+   python Activity1-KNN.py 1 $tf 1 $c > KNN/$t/NroTraining_$t-Machine_KNN-Distance_distance-Vecinos_$c.txt
 done
 
 

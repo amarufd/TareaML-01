@@ -81,25 +81,25 @@ accuracy=accuracy_score(trainLabels, predictedTrainLabels)
 print 'Classification accuracy on training set: ' + str(100*round(accuracy,2)) + '%'
 
 
-#Section 8. Computer and show confusion matrix on test set
-cnf_matrix = confusion_matrix(testLabels, predictedLabels)
-np.set_printoptions(precision=2)
+if True:
+    #Section 8. Computer and show confusion matrix on test set
+    cnf_matrix = confusion_matrix(testLabels, predictedLabels)
+    np.set_printoptions(precision=2)
 
-# Plot non-normalized confusion matrix
-plt.figure()
-AsaUtils.plot_confusion_matrix(cnf_matrix, classes=range(1,len(classNames)+1),
-                       title='Confusion matrix, without normalization')
-
-pp = PdfPages(option[var-1]+'/'+sys.argv[3]+'-NroTraining_'+numSet[selNumSet]+'-Machine_'+option[var-1]+'.pdf')
-plt.savefig(pp, format='pdf')
- 
-#Plot normalized confusion matrix
-plt.figure()
-AsaUtils.plot_confusion_matrix(cnf_matrix, classes=range(1,len(classNames)+1), normalize=True,
-                       title='Normalized confusion matrix')
- 
-#plt.show()
-
-plt.savefig(pp, format='pdf')
-pp.close()
-
+    # Plot non-normalized confusion matrix
+    plt.figure()
+    AsaUtils.plot_confusion_matrix(cnf_matrix, classes=range(1,len(classNames)+1),
+                           title='Confusion matrix, without normalization')
+    
+    pp = PdfPages(option[var-1]+'/'+numSet[selNumSet]+'/'+sys.argv[3]+'-NroTraining_'+numSet[selNumSet]+'-Machine_'+option[var-1]+'.pdf')
+    plt.savefig(pp, format='pdf')
+     
+    #Plot normalized confusion matrix
+    plt.figure()
+    AsaUtils.plot_confusion_matrix(cnf_matrix, classes=range(1,len(classNames)+1), normalize=True,
+                           title='Normalized confusion matrix')
+     
+    #plt.show()
+    
+    plt.savefig(pp, format='pdf')
+    pp.close()

@@ -1,3 +1,6 @@
-rm KNN/*
-rm SVM/*
-rm NNS/*
+rm KNN/10/*
+rm KNN/67/*
+rm SVM/10/*
+rm SVM/67/*
+rm NNS/10/*
+rm NNS/67/*
