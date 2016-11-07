@@ -1,6 +1,10 @@
 #!/bin/bash
 
-mkdir KNN
+if [ ! -d "KNN" ]; then
+  # Control will enter here if $DIRECTORY doesn't exist.
+  mkdir KNN
+fi
+
 
 for (( c=1; c<=2; c++ ))
 do  
