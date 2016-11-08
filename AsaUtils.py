@@ -18,6 +18,12 @@ def getTrueMin():
 def getDerivative(x):
     return 2*x 
 
+def getTrueMin2():
+    return (-2.0944, -1.9132)
+
+def getDerivative2(x):
+    return (np.cos(x)+0.5)
+
 def getDescriptors(inDir, fileType, descripSize):
     
     nFiles = 0

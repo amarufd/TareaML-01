@@ -3,6 +3,8 @@ import sys
 sys.path.append('/Users/amaru/Desktop/Diplomado_bigData/Tarea_ML/CodigosPython')   
 import AsaUtils
 
+import time;
+
 import initOptions
 import numpy as np
 from sklearn import svm
@@ -16,38 +18,40 @@ from matplotlib.backends.backend_pdf import PdfPages
 import matplotlib.pyplot as plt
 
 
-if sys.argv[6].isdigit():
+try:
+    pdf = sys.argv[7]
+except IndexError:
+    pdf = False
+
+try:
     learning_rate_init = sys.argv[6]
-else:
+except IndexError:
     learning_rate_init = '0.001'
 
-if sys.argv[5].isdigit():
+try:
     capaOcultaB = sys.argv[5]
-else:
+except IndexError:
     capaOcultaB = '100'
 
-if sys.argv[4].isdigit():
+try:
     capaOcultaA = sys.argv[4]
-else:
+except IndexError:
     capaOcultaA = '100'
 
 solve =["lbfgs","sgd","adam"]
 
-if sys.argv[3].isdigit():
+try:
     selSolve = int(sys.argv[3])
-else:
+except IndexError:
     selSolve = 0
 
-
-numSet =["10","67"]
-
-if sys.argv[2].isdigit():
+try:
     selNumSet = int(sys.argv[2])
-else:
-    selNumSet = 0
+except IndexError:
+    selNumSet = 10
 
 #Section 0. Define Path to seek features
-RootDescPath='MIT-'+numSet[selNumSet]+'-DescriptorsPath'
+RootDescPath='MIT-'+str(selNumSet)+'-DescriptorsPath'
 
 option =["KNN","SVM","NNS"]
 
@@ -61,6 +65,8 @@ else:
 while var < 1 or var > 3 :  # This constructs an infinite loop
 	var = int(input("ESeleccione una opcion: "))
 
+
+timeStart = time.time()
 print "Opcion escogida: ", option[var-1], ' - Solver: ', solve[selSolve], ' - CapaOcultaA: ', capaOcultaA, ' - CapaOcultaB: ', capaOcultaB, ' - Learning Rate Init: ', learning_rate_init
 
 #Section 1. Define classifiers to use in this activity
@@ -96,7 +102,7 @@ predictedTrainLabels=classifier.predict(trainFeats)
 accuracy=accuracy_score(trainLabels, predictedTrainLabels)
 print 'Classification accuracy on training set: ' + str(100*round(accuracy,2)) + '%'
 
-if True:
+if pdf:
     #Section 8. Computer and show confusion matrix on test set
     cnf_matrix = confusion_matrix(testLabels, predictedLabels)
     np.set_printoptions(precision=2)
@@ -118,4 +124,16 @@ if True:
     
     plt.savefig(pp, format='pdf')
     pp.close()
+
+
+
+
+
+time_total = (time.time() - timeStart) #En mili segundos
+
+
+minuto = int(time_total / 60)
+segundos = int(time_total % 60)
+
+print "tiempo de ejecucion: "+str(time_total)+"\n"+str(minuto)+" Minutos - "+str(segundos)+" Segundos"
 

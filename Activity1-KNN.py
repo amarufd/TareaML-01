@@ -3,6 +3,8 @@ import sys
 sys.path.append('/Users/amaru/Desktop/Diplomado_bigData/Tarea_ML/CodigosPython')   
 import AsaUtils
 
+import time;
+
 import initOptions
 import numpy as np
 from sklearn import svm
@@ -13,45 +15,49 @@ from sklearn.neighbors import KNeighborsClassifier
 
 from matplotlib.backends.backend_pdf import PdfPages
 
+
 import matplotlib.pyplot as plt
 
+try:
+    pdf = sys.argv[5]
+except IndexError:
+    pdf = False
 
-if sys.argv[4].isdigit():
+try:
     numVecino = int(sys.argv[4])
-else:
+except IndexError:
     numVecino = 1
 
 
-if sys.argv[3].isdigit():
+try:
     wei = int(sys.argv[3])
-else:
+except IndexError:
     wei = 0
 
 weights =["uniform","distance"]
 
-numSet =["10","67"]
-
-if sys.argv[2].isdigit():
+try:
     selNumSet = int(sys.argv[2])
-else:
-    selNumSet = 0
+except IndexError:
+    selNumSet = 10
 
 #Section 0. Define Path to seek features
-RootDescPath='MIT-'+numSet[selNumSet]+'-DescriptorsPath'
+RootDescPath='MIT-'+str(selNumSet)+'-DescriptorsPath'
 
 
 option =["KNN","SVM","NNS"]
 
 print "KNN -> 1\nSVM -> 2\nNNS -> 3"
 
-if sys.argv[1].isdigit():
+try:
     var = int(sys.argv[1])
-else:
+except IndexError:
     var = 0
 
 while var < 1 or var > 3 :  # This constructs an infinite loop
 	var = int(input("ESeleccione una opcion: "))
 
+timeStart = time.time()
 print "Opcion escogida: ", option[var-1], " - wheights: ", weights[wei], " - Numero de Vecinos: ", numVecino
 
 #Section 1. Define classifiers to use in this activity
@@ -87,7 +93,7 @@ predictedTrainLabels=classifier.predict(trainFeats)
 accuracy=accuracy_score(trainLabels, predictedTrainLabels)
 print 'Classification accuracy on training set: ' + str(100*round(accuracy,2)) + '%'
 
-if True:
+if pdf:
     #Section 8. Computer and show confusion matrix on test set
     cnf_matrix = confusion_matrix(testLabels, predictedLabels)
     np.set_printoptions(precision=2)
@@ -109,3 +115,14 @@ if True:
     
     plt.savefig(pp, format='pdf')
     pp.close()
+
+
+
+
+time_total = (time.time() - timeStart) #En mili segundos
+
+
+minuto = int(time_total / 60)
+segundos = int(time_total % 60)
+
+print "tiempo de ejecucion: "+str(time_total)+"\n"+str(minuto)+" Minutos - "+str(segundos)+" Segundos"

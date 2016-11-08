@@ -7,11 +7,10 @@ if [ ! -d "SVM" ]; then
   mkdir SVM/67
 fi
 
-t=10
-tf=0
+t=67
 
 num=$(awk 'BEGIN{for(i=0.1;i<=10.0;i+=0.5)print i}')
 for n in $num
 do
-  python Activity1-SVM.py 2 $tf $n > SVM/$t/NroTraining_$t-Machine_SVM-C_$n.txt
+  python Activity1-SVM.py 2 $t $n > SVM/$t/NroTraining_$t-Machine_SVM-C_$n.txt
 done

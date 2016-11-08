@@ -3,6 +3,8 @@ import sys
 sys.path.append('/Users/amaru/Desktop/Diplomado_bigData/Tarea_ML/CodigosPython')   
 import AsaUtils
 
+import time;
+
 import initOptions
 import numpy as np
 from sklearn import svm
@@ -17,21 +19,22 @@ import matplotlib.pyplot as plt
 
 
 try:
-    C = sys.argv[2]
+    pdf = sys.argv[4]
+except IndexError:
+    pdf = False
+
+try:
+    C = str(sys.argv[3])
 except IndexError:
     C = 1.0
-	
 
-
-numSet =["10","67"]
-
-if sys.argv[2].isdigit():
+try:
     selNumSet = int(sys.argv[2])
-else:
-    selNumSet = 0
+except IndexError:
+    selNumSet = 10
 
 #Section 0. Define Path to seek features
-RootDescPath='MIT-'+numSet[selNumSet]+'-DescriptorsPath'
+RootDescPath='MIT-'+str(selNumSet)+'-DescriptorsPath'
 
 option =["KNN","SVM","NNS"]
 
@@ -45,11 +48,13 @@ else:
 while var < 1 or var > 3 :  # This constructs an infinite loop
 	var = int(input("ESeleccione una opcion: "))
 
-print "Opcion escogida: ", option[var-1], " - Valor C:", str(sys.argv[3])
+
+timeStart = time.time()
+print "Opcion escogida: ", option[var-1], " - Valor C:", str(C)
 
 #Section 1. Define classifiers to use in this activity
 classifiersDefs = {'KNN':"KNeighborsClassifier(n_neighbors=1, metric='euclidean', weights='distance')",
-                   'SVM':"svm.LinearSVC(penalty='l2', loss='squared_hinge', dual=True, tol=0.0001, C="+str(sys.argv[3])+", multi_class='ovr')",
+                   'SVM':"svm.LinearSVC(penalty='l2', loss='squared_hinge', dual=True, tol=0.0001, C="+str(C)+", multi_class='ovr')",
                    'NNS':"MLPClassifier(solver='lbfgs', alpha=1e-5, hidden_layer_sizes=(100, 100), learning_rate='constant', learning_rate_init=0.001, shuffle=True, random_state=1)"}
 
 #Section 2. Init libraries and main options
@@ -81,7 +86,7 @@ accuracy=accuracy_score(trainLabels, predictedTrainLabels)
 print 'Classification accuracy on training set: ' + str(100*round(accuracy,2)) + '%'
 
 
-if True:
+if pdf:
     #Section 8. Computer and show confusion matrix on test set
     cnf_matrix = confusion_matrix(testLabels, predictedLabels)
     np.set_printoptions(precision=2)
@@ -103,3 +108,15 @@ if True:
     
     plt.savefig(pp, format='pdf')
     pp.close()
+
+
+
+
+
+time_total = (time.time() - timeStart) #En mili segundos
+
+minuto = int(time_total / 60)
+segundos = int(time_total % 60)
+
+print "tiempo de ejecucion: "+str(time_total)+"\n"+str(minuto)+" Minutos - "+str(segundos)+" Segundos"
+

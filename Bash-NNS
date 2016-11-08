@@ -8,8 +8,7 @@ if [ ! -d "NNS" ]; then
 fi
 
 
-t=10
-tf=0
+t=67
 
 #["lbfgs","sgd","adam"]
 
@@ -19,17 +18,17 @@ tf=0
 num=$(awk 'BEGIN{for(i=1;i<=101;i+=10)print i}')
 for n in $num
 do
-  python Activity1-NNS.py 3 $tf 0 $n $n 0.001 > NNS/$t/NroTraining_$t-Machine_NNS-Solver_lbfgs-COA_$n-COB_$n-LRI_0.001.txt
+  python Activity1-NNS.py 3 $t 0 $n $n 0.001 > NNS/$t/NroTraining_$t-Machine_NNS-Solver_lbfgs-COA_$n-COB_$n-LRI_0.001.txt
 done
 
 num=$(awk 'BEGIN{for(i=1;i<=101;i+=10)print i}')
 for n in $num
 do
-  python Activity1-NNS.py 3 $tf 1 $n $n 0.001 > NNS/$t/NroTraining_$t-Machine_NNS-Solver_sgd-COA_$n-COB_$n-LRI_0.001.txt
+  python Activity1-NNS.py 3 $t 1 $n $n 0.001 > NNS/$t/NroTraining_$t-Machine_NNS-Solver_sgd-COA_$n-COB_$n-LRI_0.001.txt
 done
 
 num=$(awk 'BEGIN{for(i=1;i<=101;i+=10)print i}')
 for n in $num
 do
-  python Activity1-NNS.py 3 $tf 2 $n $n 0.001 > NNS/$t/NroTraining_$t-Machine_NNS-Solver_adam-COA_$n-COB_$n-LRI_0.001.txt
+  python Activity1-NNS.py 3 $t 2 $n $n 0.001 > NNS/$t/NroTraining_$t-Machine_NNS-Solver_adam-COA_$n-COB_$n-LRI_0.001.txt
 done
