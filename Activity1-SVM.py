@@ -96,7 +96,7 @@ if pdf:
     AsaUtils.plot_confusion_matrix(cnf_matrix, classes=range(1,len(classNames)+1),
                            title='Confusion matrix, without normalization')
     
-    pp = PdfPages(option[var-1]+'/'+numSet[selNumSet]+'/'+sys.argv[3]+'-NroTraining_'+numSet[selNumSet]+'-Machine_'+option[var-1]+'.pdf')
+    pp = PdfPages(option[var-1]+'/'+str(selNumSet)+'/'+sys.argv[3]+'-NroTraining_'+str(selNumSet)+'-Machine_'+option[var-1]+'.pdf')
     plt.savefig(pp, format='pdf')
      
     #Plot normalized confusion matrix

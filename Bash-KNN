@@ -7,23 +7,22 @@ if [ ! -d "KNN" ]; then
   mkdir KNN/67
 fi
 
-t=67
+t=10
 
 
 #weights =["uniform","distance"]
-
-for (( c=1; c<=15; c++ ))
+echo "KNN" > KNN/$t/NroTraining_$t-Machine_KNN.txt
+for (( c=1; c<=17; c++ ))
 do  
-   python Activity1-KNN.py 1 $t 0 $c > KNN/$t/NroTraining_$t-Machine_KNN-Distance_uniform-Vecinos_$c.txt
+   echo "KNN/$t/NroTraining_$t-Machine_KNN-Distance_uniform-Vecinos_$c.txt"
+   python Activity1-KNN.py 1 $t 0 $c True >> KNN/$t/NroTraining_$t-Machine_KNN.txt
 done
 
-for (( c=1; c<=15; c++ ))
+for (( c=1; c<=17; c++ ))
 do  
-   python Activity1-KNN.py 1 $t 1 $c > KNN/$t/NroTraining_$t-Machine_KNN-Distance_distance-Vecinos_$c.txt
+   echo "KNN/$t/NroTraining_$t-Machine_KNN-Distance_distance-Vecinos_$c.txt"
+   python Activity1-KNN.py 1 $t 1 $c True >> KNN/$t/NroTraining_$t-Machine_KNN.txt
 done
-
-
-
 
 
 ## python Activity1-KNN.py 1 0 1 1 > KNN/NroTraining_10-Machine_KNN-B$c.txt
