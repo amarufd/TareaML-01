@@ -8,8 +8,17 @@ if [ ! -d "SVM" ]; then
 fi
 
 t=10
+
 echo "SVM" > SVM/$t/NroTraining_$t-Machine_SVM.txt
 num=$(awk 'BEGIN{for(i=0.1;i<=10.0;i+=0.5)print i}')
+for n in $num
+do
+  echo "SVM/$t/NroTraining_$t-Machine_SVM-C_$n.txt"
+  python Activity1-SVM.py 2 $t $n True >> SVM/$t/NroTraining_$t-Machine_SVM.txt
+done
+
+echo "SVM" > SVM/$t/NroTraining_$t-Machine_SVM.txt
+num=$(awk 'BEGIN{for(i=20.0;i<=100.0;i+=10.0)print i}')
 for n in $num
 do
   echo "SVM/$t/NroTraining_$t-Machine_SVM-C_$n.txt"

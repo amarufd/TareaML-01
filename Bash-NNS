@@ -23,14 +23,14 @@ do
   python Activity1-NNS.py 3 $t 0 $n $n 0.001 True >> NNS/$t/NroTraining_$t-Machine_NNS.txt
 done
 
-num=$(awk 'BEGIN{for(i=101;i<=501;i+=50)print i}')
+num=$(awk 'BEGIN{for(i=151;i<=501;i+=50)print i}')
 for n in $num
 do
   echo "NNS/$t/NroTraining_$t-Machine_NNS-Solver_lbfgs-COA_$n-COB_$n-LRI_0.001.txt"
   python Activity1-NNS.py 3 $t 0 $n $n 0.001 True >> NNS/$t/NroTraining_$t-Machine_NNS.txt
 done
 
-num=$(awk 'BEGIN{for(i=501;i<=10001;i+=500)print i}')
+num=$(awk 'BEGIN{for(i=551;i<=5001;i+=500)print i}')
 for n in $num
 do
   echo "NNS/$t/NroTraining_$t-Machine_NNS-Solver_lbfgs-COA_$n-COB_$n-LRI_0.001.txt"
@@ -48,14 +48,14 @@ do
   python Activity1-NNS.py 3 $t 1 $n $n 0.001 True >> NNS/$t/NroTraining_$t-Machine_NNS.txt
 done
 
-num=$(awk 'BEGIN{for(i=101;i<=501;i+=50)print i}')
+num=$(awk 'BEGIN{for(i=151;i<=501;i+=50)print i}')
 for n in $num
 do
   echo "NNS/$t/NroTraining_$t-Machine_NNS-Solver_sgd-COA_$n-COB_$n-LRI_0.001.txt"
   python Activity1-NNS.py 3 $t 1 $n $n 0.001 True >> NNS/$t/NroTraining_$t-Machine_NNS.txt
 done
 
-num=$(awk 'BEGIN{for(i=501;i<=10001;i+=500)print i}')
+num=$(awk 'BEGIN{for(i=551;i<=5001;i+=500)print i}')
 for n in $num
 do
   echo "NNS/$t/NroTraining_$t-Machine_NNS-Solver_sgd-COA_$n-COB_$n-LRI_0.001.txt"
@@ -74,14 +74,14 @@ do
   python Activity1-NNS.py 3 $t 2 $n $n 0.001 True >> NNS/$t/NroTraining_$t-Machine_NNS.txt
 done
 
-num=$(awk 'BEGIN{for(i=101;i<=501;i+=50)print i}')
+num=$(awk 'BEGIN{for(i=151;i<=501;i+=50)print i}')
 for n in $num
 do
   echo "NNS/$t/NroTraining_$t-Machine_NNS-Solver_adam-COA_$n-COB_$n-LRI_0.001.txt"
   python Activity1-NNS.py 3 $t 2 $n $n 0.001 True >> NNS/$t/NroTraining_$t-Machine_NNS.txt
 done
 
-num=$(awk 'BEGIN{for(i=501;i<=10001;i+=500)print i}')
+num=$(awk 'BEGIN{for(i=551;i<=5001;i+=500)print i}')
 for n in $num
 do
   echo "NNS/$t/NroTraining_$t-Machine_NNS-Solver_adam-COA_$n-COB_$n-LRI_0.001.txt"

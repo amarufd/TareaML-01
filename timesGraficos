@@ -1,0 +1,66 @@
+learningRate = 0.5
+tiempo de ejecucion: 2.34641194344
+0 Minutos - 2 Segundos
+
+
+learningRate = 0.1
+tiempo de ejecucion: 11.3967959881
+0 Minutos - 11 Segundos
+
+
+learningRate = 0.05
+tiempo de ejecucion: 20.2221899033
+0 Minutos - 20 Segundos
+
+
+learningRate = 0.01
+tiempo de ejecucion: 77.8330640793
+1 Minutos - 17 Segundos
+
+
+learningRate = 0.005
+tiempo de ejecucion: 139.787029982
+2 Minutos - 19 Segundos
+
+
+learningRate = 0.001
+tiempo de ejecucion: 546.154727936
+9 Minutos - 6 Segundos
+
+
+learningRate = 0.0005
+tiempo de ejecucion: 926.027495861
+15 Minutos - 26 Segundos
+
+
+##
+
+
+learningRate = 0.5
+tiempo de ejecucion: 5.37801003456
+0 Minutos - 5 Segundos
+
+
+learningRate = 0.1
+tiempo de ejecucion: 26.0375630856
+0 Minutos - 26 Segundos
+
+
+learningRate = 0.05
+tiempo de ejecucion: 45.8244609833
+0 Minutos - 45 Segundos
+
+
+learningRate = 0.01
+
+
+
+learningRate = 0.005
+
+
+
+learningRate = 0.001
+
+
+
+learningRate = 0.0005

@@ -1,6 +1,9 @@
 import numpy as np
 import matplotlib.pyplot as plt
 import matplotlib.animation as animation
+
+import time;
+
 import AsaUtils
 
 #Section 1. Define target function  
@@ -13,10 +16,14 @@ plt.axis([-12, 12,-5, 150])
 funcMin=AsaUtils.getTrueMin()
 plt.plot(x,y,'k',funcMin[0], funcMin[1],'bo',linewidth=2.0, markersize=12)
 plt.title('Quadratic function')
+
+
+timeStart = time.time()
+
    
 #Section 3. Define relevant parameters to perform the gradient descent estimation
 old_min = 10  #This is the initial value for x
-learningRate = 0.01
+learningRate = 0.0005
 precision = 0.0001  # This is the minimum error to stop the gradient descent loop
 
 
@@ -61,3 +68,16 @@ anim = animation.FuncAnimation(fig2, animate, init_func=init, blit=False)
 print "exit animate"
  
 plt.show()
+
+
+
+
+
+
+time_total = (time.time() - timeStart) #En mili segundos
+
+minuto = int(time_total / 60)
+segundos = int(time_total % 60)
+
+print "tiempo de ejecucion: "+str(time_total)+"\n"+str(minuto)+" Minutos - "+str(segundos)+" Segundos"
+
